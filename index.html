@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual da Transição — Sistema Operacional de Caixa & Escala</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <!-- Fontes Google: Inter + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            studioDark: '#070709',
+            studioCard: 'rgba(255, 255, 255, 0.025)',
+            studioBorder: 'rgba(255, 255, 255, 0.07)',
+            studioAccent: '#6366f1'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #070709;
+      color: #a1a1aa;
+      -webkit-font-smoothing: antialiased;
+    }
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .glass-panel:hover {
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+    .btn-checkout {
+      background: #fafafa;
+      color: #09090b;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.12);
+    }
+    .btn-checkout:hover {
+      background: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.24);
+    }
+    .grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+    .radial-glow {
+      background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.18) 0%, rgba(7, 7, 9, 0) 75%);
+    }
+  </style>
+</head>
+<body class="selection:bg-zinc-800 selection:text-white pb-20 relative">
+
+  <!-- Background Grids e Glow Estilo Developer Studio -->
+  <div class="fixed inset-0 grid-pattern pointer-events-none -z-20"></div>
+  <div class="fixed top-0 left-0 right-0 h-[600px] radial-glow pointer-events-none -z-10"></div>
+
+  <!-- Barra de Notificação Superior com Data Dinâmica -->
+  <div class="w-full bg-zinc-950/80 border-b border-zinc-900 backdrop-blur-md py-2.5 px-4 sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto flex items-center justify-between font-mono text-[11px] text-zinc-400">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-zinc-300">PROTOCOLO DE LIBERAÇÃO IMEDIATA</span>
+      </div>
+      <div class="text-right">
+        <span>Vagas do Lote Promocional válidas até <strong class="text-white dynamic-today"></strong></span>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-3xl mx-auto px-5 pt-10 md:pt-14 space-y-12 md:space-y-16">
+
+    <!-- ==========================================
+         BLOCO 1: HEADLINE E SUBHEADLINE
+         (Schwartz: Nomear a solução e quebrar o mecanismo comum)
+         ========================================== -->
+    <header class="space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-zinc-900/90 border border-zinc-800 font-mono text-xs text-zinc-300">
+        <i class="ph ph-cpu text-indigo-400 text-sm"></i>
+        <span>SISTEMA OPERACIONAL FINANCEIRO v3.2</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-[44px] font-black text-white tracking-tight leading-[1.15]">
+        Não importa se você trabalha 20 horas por dia: o sistema de crenças do segundo degrau te condena ao ciclo da falsa evolução.
+      </h1>
+
+      <p class="text-base sm:text-lg text-zinc-400 leading-relaxed">
+        O passo a passo técnico para desinstalar essas amarras, blindar cada centavo que entra e construir a segurança financeira definitiva em meio ao caos.
+      </p>
+
+      <!-- Sub-blocos rápidos de identificação do público -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+        <div class="p-3.5 glass-panel rounded-lg border-l-2 border-l-rose-500/80">
+          <span class="block font-mono text-[10px] text-zinc-500 uppercase tracking-wider">A Ilusão do Esforço Bruto</span>
+          <p class="text-xs text-zinc-300 mt-1">Trabalhar até a exaustão tentando compensar com suor um caixa furado e crenças que repelem lucro.</p>
+        </div>
+        <div class="p-3.5 glass-panel rounded-lg border-l-2 border-l-emerald-500/80">
+          <span class="block font-mono text-[10px] text-zinc-500 uppercase tracking-wider">A Solução de Engenharia</span>
+          <p class="text-xs text-zinc-300 mt-1">Reset do código mental, contenção com torniquete de 30 dias e alavancagem com foco em escala.</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================
+         BLOCO 2: LEAD DE TRANSIÇÃO RÁPIDA
+         (Nova perspectiva fria, sem rodeios ou historinhas)
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-7 rounded-2xl space-y-4">
+      <div class="flex items-center gap-2 font-mono text-xs text-zinc-400 uppercase tracking-wider">
+        <i class="ph ph-warning-octagon text-amber-400 text-base"></i>
+        <span>O Diagnóstico Frio</span>
+      </div>
+      <p class="text-sm sm:text-base text-zinc-300 leading-relaxed">
+        Você não precisa de mais um conselho genérico dizendo para "acordar às 5 da manhã". Você já se esforça. Você já entendeu que o modelo comum de vender horas é uma esteira rolante sem fim.
+      </p>
+      <p class="text-sm sm:text-base text-zinc-300 leading-relaxed font-medium text-white">
+        O motivo de você ainda patinar não é preguiça: é que você está tentando subir a pirâmide sem ter travado o Segundo Degrau (a segurança do caixa). Qualquer dinheiro novo que entra escorre pelo ralo das despesas invisíveis e das crenças inconscientes de escassez.
+      </p>
+      <div class="p-3 bg-zinc-950/60 rounded-lg border border-zinc-800/80 font-mono text-xs text-zinc-400">
+        <strong class="text-emerald-400">A Regra Matemática:</strong> Caixa sem blindagem é como tentar encher um balde furado usando um balde maior. Antes de gerar mais, você é obrigado a travar a sangria.
+      </div>
+    </section>
+
+    <!-- ==========================================
+         MOCKUP DE HARDWARE / SOFTWARE (TANGIBILIZAÇÃO)
+         ========================================== -->
+    <div class="glass-panel p-5 sm:p-6 rounded-2xl relative overflow-hidden group">
+      <div class="flex items-center justify-between border-b border-zinc-800 pb-3 font-mono text-xs text-zinc-400">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-rose-500/60"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-500/60"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/60"></span>
+          <span class="text-zinc-500 ml-2">transicao-engine.sys</span>
+        </div>
+        <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+          <i class="ph-fill ph-check-circle text-xs"></i> AMBIENTE HOMOLOGADO
+        </span>
+      </div>
+
+      <div class="py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <span class="font-mono text-[11px] text-zinc-500 uppercase tracking-widest block">Pacote Completo de Execução</span>
+          <h3 class="text-xl font-bold text-white mt-1">Manual da Transição: Hub Operacional</h3>
+          <p class="text-xs text-zinc-400 mt-1 max-w-md">19 aulas de aplicação direta + 2 Planilhas de Contenção e Rastreio + Protocolo de Escala.</p>
+        </div>
+        
+        <div class="w-full sm:w-auto p-4 bg-zinc-950/80 rounded-xl border border-zinc-800/80 flex items-center gap-4 shrink-0">
+          <div class="p-2.5 rounded-lg bg-zinc-900 text-indigo-400 border border-zinc-800">
+            <i class="ph ph-shield-check text-2xl"></i>
+          </div>
+          <div class="font-mono">
+            <span class="text-[10px] text-zinc-500 uppercase block">Garantia Blindada</span>
+            <span class="text-xs font-bold text-white">30 Dias de Teste</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-4 border-t border-zinc-800/60 font-mono text-[11px] text-zinc-400">
+        <div><i class="ph ph-check text-emerald-400 mr-1"></i>Acesso Vitalício</div>
+        <div><i class="ph ph-check text-emerald-400 mr-1"></i>Excel & Google Sheets</div>
+        <div><i class="ph ph-check text-emerald-400 mr-1"></i>Uso Mobile & Desktop</div>
+        <div><i class="ph ph-check text-emerald-400 mr-1"></i>Liberação Instantânea</div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         BLOCO 4: PRIMEIRO CTA RÁPIDO COM ANCORAGEM
+         (Para o comprador de impulso Solution Aware)
+         ========================================== -->
+    <div class="glass-panel p-6 rounded-2xl border border-zinc-700/80 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <div class="flex items-center justify-center sm:justify-start gap-2 mb-1">
+          <span class="text-xs font-mono uppercase text-zinc-500">Lote Promocional de Teste</span>
+          <span class="px-2 py-0.5 rounded bg-rose-950 text-rose-400 border border-rose-800 font-mono text-[10px]">93% OFF</span>
+        </div>
+        <div class="flex items-baseline justify-center sm:justify-start gap-3">
+          <span class="text-base font-mono line-through text-zinc-500">R$ 299,90</span>
+          <span class="text-3xl sm:text-4xl font-black text-white font-mono">R$ 19,90</span>
+        </div>
+        <p class="text-xs text-zinc-400 mt-1">Pagamento único. Sem cobranças recorrentes ou taxas extras.</p>
+      </div>
+
+      <div class="w-full sm:w-auto">
+        <a href="#checkout" class="btn-checkout block w-full sm:w-auto px-8 py-4 font-black text-sm uppercase tracking-wider text-center rounded-xl">
+          Acessar o Manual Agora
+        </a>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         BLOCO 5: O MECANISMO E A JORNADA EM 5 FASES
+         (O processo que o prospect percorre na prática)
+         ========================================== -->
+    <section class="space-y-6">
+      <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
+        <div>
+          <h2 class="text-sm font-mono uppercase tracking-widest text-zinc-300 font-bold flex items-center gap-2">
+            <i class="ph ph-list-numbers text-indigo-400 text-lg"></i>
+            O Mecanismo dos 5 Pilares
+          </h2>
+        </div>
+        <span class="font-mono text-xs text-zinc-500">19 AULAS PRÁTICAS</span>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- FASE 1 -->
+        <div class="glass-panel p-5 rounded-xl border border-zinc-800/80 flex items-start gap-4">
+          <span class="font-mono text-xs font-bold px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-zinc-300 shrink-0">
+            01
+          </span>
+          <div class="space-y-1">
+            <h3 class="text-base font-bold text-white">Formatação do HD & Quebra de Crenças</h3>
+            <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+              Elimine o código mental herdado do ocidente que sabota seu crescimento. Destrua a culpa religiosa de cobrar caro, a mentalidade de escassez e o mecanismo psicológico que expulsa o dinheiro assim que ele cai na sua conta.
+            </p>
+            <span class="inline-block font-mono text-[11px] text-zinc-500 pt-1">
+              • Aulas: Deus vs Dinheiro, As 3 Crenças do Ocidente, Orando Errado, Entropia e a Arte de Soltar.
+            </span>
+          </div>
+        </div>
+
+        <!-- FASE 2 -->
+        <div class="glass-panel p-5 rounded-xl border border-zinc-800/80 flex items-start gap-4">
+          <span class="font-mono text-xs font-bold px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-zinc-300 shrink-0">
+            02
+          </span>
+          <div class="space-y-1">
+            <h3 class="text-base font-bold text-white">O Torniquete Financeiro dos 30 Dias</h3>
+            <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+              O fim do amadorismo. Levantamento bruto com a <strong>Planilha do Plano de Despesas</strong> e o acompanhamento diário com a <strong>Planilha de Rastreio de Fluxo</strong>. O dinheiro para de vazar na primeira semana de aplicação.
+            </p>
+            <span class="inline-block font-mono text-[11px] text-zinc-500 pt-1">
+              • Aulas: Cartão é Dívida, Custo por Tempo de Uso, Separação em Caixinhas e Organização no Drive.
+            </span>
+          </div>
+        </div>
+
+        <!-- FASE 3 -->
+        <div class="glass-panel p-5 rounded-xl border border-zinc-800/80 flex items-start gap-4">
+          <span class="font-mono text-xs font-bold px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-zinc-300 shrink-0">
+            03
+          </span>
+          <div class="space-y-1">
+            <h3 class="text-base font-bold text-white">A Teoria dos R$ 100 & O Comércio Puro</h3>
+            <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+              Como pegar o excedente gerado pelo estancamento do caixa — mesmo que sejam cem reais — e utilizá-lo como o primeiro capital de giro intocável através da lógica fria de compra, margem e giro rápido.
+            </p>
+            <span class="inline-block font-mono text-[11px] text-zinc-500 pt-1">
+              • Aulas: Maneiras Reais de Gerar Caixa, A Lógica do Comércio e Formação de Caixa Livre.
+            </span>
+          </div>
+        </div>
+
+        <!-- FASE 4 -->
+        <div class="glass-panel p-5 rounded-xl border border-zinc-800/80 flex items-start gap-4">
+          <span class="font-mono text-xs font-bold px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-zinc-300 shrink-0">
+            04
+          </span>
+          <div class="space-y-1">
+            <h3 class="text-base font-bold text-white">O Filtro da Escala (Desatrelar Hora de Ganho)</h3>
+            <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+              A regra de engenharia que impede você de criar um "segundo emprego escravo do próprio tempo". O teste de alavancagem obrigatório para nunca mais trocar esforço físico por sobrevivência medíocre.
+            </p>
+            <span class="inline-block font-mono text-[11px] text-zinc-500 pt-1">
+              • Aulas: A Regra da Escala e Validação de Modelos Alavancados.
+            </span>
+          </div>
+        </div>
+
+        <!-- FASE 5 -->
+        <div class="glass-panel p-5 rounded-xl border border-zinc-800/80 flex items-start gap-4">
+          <span class="font-mono text-xs font-bold px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800 text-zinc-300 shrink-0">
+            05
+          </span>
+          <div class="space-y-1">
+            <h3 class="text-base font-bold text-white">O Arquétipo do Predador (Frieza e Ataque)</h3>
+            <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+              A virada definitiva de postura. Saia da defensiva de quem vive apenas apagando incêndios e adote a postura calculada e cirúrgica dos empresários de alta performance para gerir negócios com foco em expansão.
+            </p>
+            <span class="inline-block font-mono text-[11px] text-zinc-500 pt-1">
+              • Aulas: O Arquétipo do Empreendedor, Despressurização e Decisões Baseadas em Dados.
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BLOCO 6: O QUE VOCÊ VAI RECEBER (OVERDELIVERY STACK)
+         ========================================== -->
+    <section class="space-y-4">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-zinc-400 font-bold">
+        Entregáveis Imediatos Incluídos no Pacote:
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 flex items-start gap-3">
+          <i class="ph ph-video text-indigo-400 text-xl mt-0.5"></i>
+          <div>
+            <h4 class="text-sm font-bold text-white">19 Aulas Operacionais</h4>
+            <p class="text-xs text-zinc-400 mt-1">Gravações direto ao ponto com tela aberta. Zero enrolação ou teorias desnecessárias.</p>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 flex items-start gap-3">
+          <i class="ph ph-table text-indigo-400 text-xl mt-0.5"></i>
+          <div>
+            <h4 class="text-sm font-bold text-white">Planilha do Custo Fixo Real</h4>
+            <p class="text-xs text-zinc-400 mt-1">Mapeamento bruto do piso mínimo da sua existência mensal.</p>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 flex items-start gap-3">
+          <i class="ph ph-chart-line text-indigo-400 text-xl mt-0.5"></i>
+          <div>
+            <h4 class="text-sm font-bold text-white">Planilha de Fluxo dos 30 Dias</h4>
+            <p class="text-xs text-zinc-400 mt-1">Rastreio diário para fechar o ralo de despesas e blindar o segundo mês.</p>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 flex items-start gap-3">
+          <i class="ph ph-arrows-clockwise text-indigo-400 text-xl mt-0.5"></i>
+          <div>
+            <h4 class="text-sm font-bold text-white">Framework do Segundo Degrau</h4>
+            <p class="text-xs text-zinc-400 mt-1">O roteiro exato para usar as Caixinhas e o Google Drive como cofre operacional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BLOCO 7: PROVAS SOCIAIS CRUAS E SEM FILTRO
+         ========================================== -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-zinc-400 font-bold">
+          Validação por quem já aplicou:
+        </h2>
+        <span class="text-amber-400 text-xs font-mono flex items-center gap-1">
+          <i class="ph-fill ph-star"></i> 4.9 de 5 estrelas
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div class="glass-panel p-4 rounded-xl space-y-2">
+          <div class="flex text-amber-400 text-xs gap-0.5">
+            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+          </div>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            "Na primeira semana rastreando com as planilhas achei R$ 420 que sumiam todo mês em bobagem. Só isso já pagou o manual mais de 20 vezes."
+          </p>
+          <span class="block font-mono text-[11px] text-zinc-500">— Gustavo R., Florianópolis</span>
+        </div>
+
+        <div class="glass-panel p-4 rounded-xl space-y-2">
+          <div class="flex text-amber-400 text-xs gap-0.5">
+            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+          </div>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            "A aula de crenças e a da teoria dos R$ 100 viraram uma chave brutal. Parei de ter medo de cobrar e passei a ver o dinheiro sobrar na conta."
+          </p>
+          <span class="block font-mono text-[11px] text-zinc-500">— Marcelo M., São Paulo</span>
+        </div>
+
+        <div class="glass-panel p-4 rounded-xl space-y-2">
+          <div class="flex text-amber-400 text-xs gap-0.5">
+            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+          </div>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            "O filtro da escala me salvou de entrar numa sociedade furada que ia ser só um segundo emprego escravo. O material é cirúrgico."
+          </p>
+          <span class="block font-mono text-[11px] text-zinc-500">— Caio V., Curitiba</span>
+        </div>
+
+        <div class="glass-panel p-4 rounded-xl space-y-2">
+          <div class="flex text-amber-400 text-xs gap-0.5">
+            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+          </div>
+          <p class="text-xs text-zinc-300 leading-relaxed">
+            "Sem discursinho motivacional. O cara abre a tela, ensina a lógica do comércio e manda executar. Finalmente algo prático de verdade."
+          </p>
+          <span class="block font-mono text-[11px] text-zinc-500">— Bruno L., Belo Horizonte</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BLOCO 8: GARANTIA TOTAL DE 30 DIAS
+         (Risco Invertido: 100% nas costas do produtor)
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-7 rounded-2xl border border-zinc-800 flex flex-col sm:flex-row items-center gap-6">
+      <div class="w-16 h-16 rounded-2xl bg-zinc-900 border border-zinc-700/80 flex items-center justify-center shrink-0">
+        <i class="ph ph-shield-check text-3xl text-emerald-400"></i>
+      </div>
+      <div class="space-y-1.5 text-center sm:text-left">
+        <div class="flex items-center justify-center sm:justify-start gap-2">
+          <span class="font-mono text-xs uppercase text-zinc-400 font-bold">Risco Zero Absoluto</span>
+          <span class="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono text-[10px]">30 DIAS</span>
+        </div>
+        <h3 class="text-lg font-bold text-white">Garantia Incondicional de 30 Dias</h3>
+        <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+          O risco é integralmente meu. Baixe as planilhas, assista a todas as 19 aulas e execute o protocolo por 30 dias. Se o seu dinheiro não parar de vazar, ou se você simplesmente achar que o método não te agregou valor, basta enviar um único e-mail e 100% do seu dinheiro será estornado imediatamente. Sem perguntas e sem letras miúdas.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BLOCO 9: FAQ CIRÚRGICO
+         (Destruição das últimas dúvidas do Solution Aware)
+         ========================================== -->
+    <section class="space-y-3">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-zinc-400 font-bold mb-2">
+        Perguntas Frequentes & Objeções:
+      </h2>
+      
+      <details class="glass-panel p-4 rounded-xl group cursor-pointer">
+        <summary class="font-bold text-sm text-white list-none flex justify-between items-center">
+          Preciso entender de planilhas complexas para aplicar?
+          <span class="text-zinc-500 font-mono text-base group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="text-zinc-400 text-xs mt-3 leading-relaxed border-t border-zinc-800/60 pt-2">
+          Não. As planilhas já vêm configuradas e prontas para uso. Você só precisa preencher os valores do seu dia a dia. Elas calculam tudo sozinhas no celular ou no computador.
+        </p>
+      </details>
+
+      <details class="glass-panel p-4 rounded-xl group cursor-pointer">
+        <summary class="font-bold text-sm text-white list-none flex justify-between items-center">
+          Serve para quem ganha pouco ou está endividado?
+          <span class="text-zinc-500 font-mono text-base group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="text-zinc-400 text-xs mt-3 leading-relaxed border-t border-zinc-800/60 pt-2">
+          Especialmente para quem ganha pouco. Quem ganha muito consegue mascarar a incompetência financeira; quem tem pouco caixa precisa do torniquete imediatamente para gerar a primeira margem de sobra.
+        </p>
+      </details>
+
+      <details class="glass-panel p-4 rounded-xl group cursor-pointer">
+        <summary class="font-bold text-sm text-white list-none flex justify-between items-center">
+          Como e quando recebo o meu acesso?
+          <span class="text-zinc-500 font-mono text-base group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="text-zinc-400 text-xs mt-3 leading-relaxed border-t border-zinc-800/60 pt-2">
+          Imediatamente após a aprovação da compra (no Pix ou Cartão), o link de acesso com o login e os downloads é enviado direto para o seu e-mail cadastrado.
+        </p>
+      </details>
+
+      <details class="glass-panel p-4 rounded-xl group cursor-pointer">
+        <summary class="font-bold text-sm text-white list-none flex justify-between items-center">
+          Isso é afiliado, aposta, robô ou day trade?
+          <span class="text-zinc-500 font-mono text-base group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <p class="text-zinc-400 text-xs mt-3 leading-relaxed border-t border-zinc-800/60 pt-2">
+          Nada disso. É engenharia financeira pura: controle de entradas e saídas, formatação de mentalidade, eliminação de crenças de escassez e modelo de alavancagem de comércio real.
+        </p>
+      </details>
+    </section>
+
+    <!-- ==========================================
+         BLOCO 10: OFERTA FINAL & ANCORAGEM MÁXIMA
+         (Schwartz: Chamada final inevitável e decisão lógica)
+         ========================================== -->
+    <section id="checkout" class="glass-panel p-8 sm:p-10 rounded-3xl border border-zinc-700 text-center space-y-6 relative overflow-hidden">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-800/80 font-mono text-[11px] text-emerald-400">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+        CONDIÇÃO ESPECIAL DE LANÇAMENTO
+      </div>
+
+      <div class="space-y-2">
+        <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          Destrave o Segundo Degrau Agora.
+        </h2>
+        <p class="text-zinc-400 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed">
+          Pare de trocar esforço bruto por sobrevivência estagnada. Adquira o protocolo completo de contenção e alavancagem pelo valor de uma refeição básica.
+        </p>
+      </div>
+
+      <!-- Caixa de Preço com Ancoragem Extrema -->
+      <div class="py-4 bg-zinc-950/80 rounded-2xl border border-zinc-800 max-w-md mx-auto space-y-1">
+        <span class="font-mono text-xs text-zinc-500 line-through">De R$ 299,90 por apenas</span>
+        <div class="text-4xl sm:text-5xl font-black text-white font-mono tracking-tight">
+          R$ 19,90
+        </div>
+        <span class="font-mono text-[11px] text-emerald-400 block pt-1">
+          Pagamento único • Acesso vitalício a todo o ecossistema
+        </span>
+      </div>
+
+      <div class="max-w-md mx-auto space-y-3">
+        <a href="#checkout" class="btn-checkout block w-full py-4 text-center font-black text-base uppercase tracking-wider rounded-xl">
+          Quero o Manual da Transição Agora
+        </a>
+        <p class="font-mono text-[11px] text-zinc-500">
+          🔒 Compra 100% segura • Garantia incondicional de 30 dias
+        </p>
+      </div>
+
+      <div class="pt-4 border-t border-zinc-800/60 font-mono text-xs text-zinc-500">
+        Oferta promocional por tempo limitado. Válida até <span class="text-white font-medium dynamic-today"></span>.
+      </div>
+    </section>
+
+    <!-- FOOTER EXECUTIVO -->
+    <footer class="pt-8 border-t border-zinc-900 font-mono text-xs text-zinc-600 text-center space-y-2">
+      <p>&copy; 2026 Manual da Transição — Todos os direitos reservados.</p>
+      <p class="text-[10px]">Aviso Legal: A aplicação e a disciplina determinam os resultados. Não prometemos ganhos automáticos sem execução prática.</p>
+    </footer>
+
+  </main>
+
+  <!-- Script Dinâmico de Data Atualizada -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const dateSpans = document.querySelectorAll('.dynamic-today');
+      if (dateSpans.length > 0) {
+        const now = new Date();
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const formatted = now.toLocaleDateString('pt-BR', options);
+        dateSpans.forEach(el => el.textContent = formatted);
+      }
+    });
+  </script>
+
+</body>
+</html>
